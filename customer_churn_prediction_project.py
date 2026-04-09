@@ -87,10 +87,6 @@ print("Shape after encoding:", df_clean.shape)
 # 3. SEPARATE X (Features) AND Y (Target)
 print("New Column Names:", df_clean.columns)
 
-# (Self-Correction Logic: get_dummies usually creates 'Attrition_Flag_Existing Customer'.
-# If 1 = Existing, then 0 = Churn.
-# To make it easier, let's explicitely define Y.)
-
 # If 'Attrition_Flag_Existing Customer' exists:
 # 1 = Existing, 0 = Attrited.
 
@@ -163,9 +159,7 @@ plt.ylabel("Actual Truth")
 plt.xlabel("Model Prediction")
 plt.show()
 
-
-
-# --- DAY 4: FEATURE IMPORTANCE & STRATEGY ---
+# --- FEATURE IMPORTANCE & STRATEGY ---
 
 # 1. Get Feature Importances
 # The Random Forest has a built-in attribute .feature_importances_
@@ -202,37 +196,6 @@ plt.title(f"Distribution of {top_feature} by Churn Status")
 plt.legend()
 plt.show()
 
-
-
-#5: FINAL CONCLUSION & BUSINESS STRATEGY
-
-def generate_executive_summary():
-    print("="*60)
-    print("       CUSTOMER CHURN PREDICTION: FINAL REPORT       ")
-    print("="*60)
-
-    print("\n1. MODEL PERFORMANCE")
-    print("-" * 30)
-    print("   • Accuracy:  95.56% (Exceeded Target of 88%)")
-    print("   • Precision: High capability to distinguish Churners.")
-    print("   • Status:    Production-Ready")
-
-    print("\n2. PRIMARY CHURN DRIVER")
-    print("-" * 30)
-    print("   • Key Factor:  Total Transaction Amount")
-    print("   • Insight:     Customers with total transactions around 2,500 are at HIGH RISK.")
-    print("   • Safety Zone: Customers spending > 5,000 rarely churn.")
-
-    print("\n3. STRATEGIC RECOMMENDATION: 'THE 5K CLUB'")
-    print("-" * 30)
-    print("   • Goal: Push 'Risk Zone' customers (spending ~2,500) into the 'Safety Zone' (>5,000).")
-    print("   • Action: Launch a 'Double Points' campaign for customers with spending between 2,000-3,000.")
-    print("   • Incentive: 'Spend 2,500 more in the next 3 months to unlock Platinum Status.'")
-    print("   • Projected Impact: Moving 10% of these users to the Safety Zone could reduce churn by ~15%.")
-
-    print("\n" + "="*60)
-
-generate_executive_summary()
 
 import joblib
 
