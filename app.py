@@ -29,7 +29,7 @@ st.markdown("---")
 if st.button("Assess Customer Risk", type="primary"):
     
 # Prepare Data
-    input_data = pd.DataFrame(index=``, columns=model_cols)
+    input_data = pd.DataFrame(index=[0], columns=model_cols)
     input_data = input_data.fillna(0)
     input_data['Total_Trans_Amt'] = total_trans_amt
     input_data['Total_Trans_Ct'] = total_trans_ct
